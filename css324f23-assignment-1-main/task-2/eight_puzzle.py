@@ -52,12 +52,12 @@ def h3(s):
     goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     board, _, _ = s
     res = 0
-    rows = 0
-    cols = 0
-    for i in range(9):
-        if board[i] != goal[i]:
-            goal_index = goal.index(board[i])
-            rows += abs(i // 3 - goal_index // 3)
-            cols += abs(i % 3 - goal_index % 3)
-            res = rows + cols
+    for idx in range(1, 9):
+        if board[idx] != 0: 
+            current_position = board.index(idx)
+            goal_position = goal.index(idx)
+            current_row, current_col = current_position // 3, current_position % 3
+            goal_row, goal_col = goal_position // 3, goal_position % 3
+            if current_row != goal_row or current_col != goal_col:
+                res += 1
     return res
