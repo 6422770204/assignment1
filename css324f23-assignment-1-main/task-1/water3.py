@@ -45,7 +45,7 @@ def successors(s):
             yield ((x + t, y, z - t), t)
         else:
             yield ((x + z, y, 0), z)
-
+            
     # Pour from 3-liter to 5-liter
     t = 5 - y
     if z > 0 and t > 0:
